@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIRTUCIO -BIKESHOP</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  
+  
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <div class="brand-section">
+        <a class="brand" href="index.html">VIRTUCIO -BIKESHOP</a>
+        <button class="navbar-toggler" type="button" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="links-section collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about-us-section">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#shop">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact-us">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+              <i class="fas fa-shopping-cart"></i> <!-- Font Awesome shopping cart icon -->
+              Cart
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <i class="fas fa-user"></i> Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="search-form">
+              <input type="text" class="search-input" placeholder="Search">
+              <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </header>
+  
+
+  
+
+  
+
+  <!-- Main content -->
+  <section class="hero">
+    <div class="jumbotron jumbotron-with-image">
+      <div class="banner-image">
+      
+      </div>
+      <div class="text-content">
+        <h1 class="display">Welcome to VIRTUCIO -BIKESHOP</h1>
+        <p class="lead">Experience the joy of biking with our high-quality bikes and accessories.</p>
+        
+        <a href="#shop" class="explore">Explore BICYCLE</a>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- About Us Section -->
+  <section id="about-us-section">
+    <div class="container-txt" style="margin: 80px;">
+      <div class="row-cont">
+        <div class="col-lg-8 offset-lg-2">
+          <h2 class="abt"style="text-align: center;">About Us</h2>
+          <p class="abt-pa" style="justify-content: center;"> 
+            This website showcase the different types of bicycle in our Products and Accessories Equipment for our Customers. <br>
+          </p>
+          <p class="abt-pa" style="justify-content: center;">
+            Our objective is to deliver a flawless and gratifying purchasing experience for every biking accessories, regardless of whether you are a well-seasoned cyclist or a beginner <br>
+            The owner of BikeShop website is <strong>VIRTUCIO, CHARLES ADRIAN C.</strong> from BSIT-3C FOR IT305.
+          </p> 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <h2 class="section-title">Best Selling Products</h2>
+  
+    <div class="shop-content">
+  
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/rb-PARIS-RIVAL-B102-ORANGE.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'rb1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+          <h5 class="product-title">PINARELLO PARIS RIVAL AXS BIKE</h5>
+            <span class="price">₱262,750.00</span>
+          <div class="product-details">        
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>Color:  B102 Orange</li>
+                <li>Frame Size: 60cm</li>
+                <li>SKU: 10135391</li>
+                
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      
+      
+      
+  
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/mtb-CERVELO-ZHT-5-GX-AXS-MOSS-KHAKI-1.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'mtb2')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+           <h5 class="product-title">CERVELO ZHT-5 GX EAGLE AXS BIKE</h2>
+            <span class="price">₱244,800.00</span>
+          <div class="product-details">
+           
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>Color:
+                  Moss / Khaki</li>
+                <li>Frame Size: L</li>
+                <li>SKU: 10144172</li>
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+  
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/gravel-YQB51IZD.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'gravel1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+          <h5 class="product-title">BIANCHI ZOLDER PRO BIKE</h5>
+            <span class="price">₱193,800.00</span>
+          <div class="product-details">
+            
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>Color:
+                  ZD - CK16/Purple Rainbow</li>
+                <li>Frame Size: 48cm</li>
+                <li> SKU: 10124473</li>
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/gravel-00EVTV170CGRX--BLKLGSTDHN.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'gravel2')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+            <h5 class="product-title">PIVOT E-VAULT TEAM GRX DI2 BIKE</h5>
+            <span class="price">₱382,499.00</span>
+          <div class="product-details">
+          
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>Color:
+                  Glacial Green Metall</li>
+                <li>Frame Size: L</li>
+                <li>SKU: 10128327</li>
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/triath-P3_red_R8000-1.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'triath1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+           <h5 class="product-title">CERVELO P3 ULTEGRA BIKE</h5>
+            <span class="price">₱183,549.00</span>
+          <div class="product-details">
+           
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>CERVELO P3 ULTEGRA BIKE</li>
+                <li>Frame Size: 51cm</li>
+                <li>SKU: 10088247</li>
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+  
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/air-pump-PUMPS_MAMMOTH_2STAGE_BLK.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'accessories-pump1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+           <h5 class="product-title">BLACKBURN 2STAGE ANYVALVE AIR PUMP</h5>
+            <span class="price">₱1,785.00</span>
+          <div class="product-details">
+           
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>Color: Black</li>
+                <li>SKU: 10072159</li>
+             
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+  
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/e-bike-sct_silnce10_m_b_0-_1.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'ebike1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+           <h5 class="product-title">SCOTT SILENCE ERIDE 10 BIKE</h5>
+            <span class="price">₱178,500.00</span>
+          <div class="product-details">
+           
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>Color:
+                  Silver</li>
+                <li>Frame Size: M</li>
+                <li>SKU: 10116045</li>
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/pedal-TIME-XPRO-XPRESSO-FREE-CLEAT.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'pedal1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+          <h5 class="product-title">TIME XPRO/XPRESSO ICLIC CLEATS - FLOATING</h5>
+            <span class="price">₱1,173.00</span>
+          <div class="product-details">
+            
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>SKU: 1355961</li>
+               
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/saddle-PR30_Black_1.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'saddle1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+          <h5 class="product-title">ISM PR 3.0 SADDLE</h5>
+            <span class="price">₱8,153.88</span>
+          <div class="product-details">
+            
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>Color:
+                  Black</li>
+                <li>Unisex</li>
+                <li>SKU: 10068160</li>
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/chainring-Powertap_C1_Chainrings_1.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'chainring1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+           <h5 class="product-title">POWERTAP C1 CHAINRINGS</h5>
+            <span class="price">₱20,349.00</span>
+          <div class="product-details">
+           
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li>Color:
+                  Black</li>
+                <li>Chainring Size:
+                  50x36</li>
+                <li>Bolt Pattern:
+                  110bcd</li>
+                  <li>SKU: 10058265</li>
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="product-box">
+          <div class="product-image">
+            <img src="images/brake-ST-R9100-SET.jpg" alt="" class="product-img">
+            <div class="overlay">
+              <a href="#" onclick="addToCart(event, 'shifter1')" class="btn btn-primary btn-buy">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </a>
+            </div>
+          </div>
+            <h5 class="product-title">SHIMANO DURA-ACE ST-R9100 SHIFTER/BRAKE LEVER SET</h5>
+            <span class="price">₱28,049.99</span>
+          <div class="product-details">
+          
+            <div class="specs">
+              <h3>Specifications:</h3>
+              <ul>
+                <li> SKU: 130852</li>
+              
+              </ul>
+            </div>
+            <div class="ratings" style="color: yellow; font-size: 30px;">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+    </div>
+  </section>
+  
+    
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="cartModalOverlay"></div>
+  <div class="modal" id="cartModal">
+    <div class="modal-header">
+      <h5 class="modal-title" id="cartModalLabel">Cart</h5>
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div id="cartContent">
+        <div class="cart-total">
+          Total Price: ₱<span id="cartTotal">0.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" id="conshop" onclick="closeModal()">Continue Shopping</button>
+    </div>
+  </div>
+
+  <section id="contact-us">
+    <form action="contact.php" method="post">
+        <div style="width: 400px; margin: 0 auto;">
+            <h1 style="text-align: center; margin-bottom: 20px; margin-top: 2rem;">Customer Form</h1>
+
+            <div style="margin-bottom: 20px;">
+                <label for="name" style="display: block; margin-bottom: 5px;">Name</label>
+                <input type="text" id="name" name="name" style="width: 100%; padding: 10px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label for="email" style="display: block; margin-bottom: 5px;">Email</label>
+                <input type="email" id="email" name="email" style="width: 100%; padding: 10px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label for="message" style="display: block; margin-bottom: 5px;">Message</label>
+                <textarea id="message" name="message" rows="5" style="width: 100%; padding: 10px;"></textarea>
+            </div>
+
+            <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer; margin-bottom: 1rem;">Submit</button>
+        </div>
+    </form>
+</section>
+
+  
+<!-- Footer -->
+<footer class="footer">
+  <div class="conte">
+    <div class="row-fot">
+      <div class="links">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about-us-section">About</a></li>
+          <li><a href="#shop">Products</a></li>
+          <li><a href="#contact-us">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="links">
+        <h5>Connect With Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+      <div class="links">
+        <h5>Contact Info</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-phone"></i> #09452560074</li>
+          <li><i class="fas fa-envelope"></i> virtucio_charlesadrian@plpasig.edu.ph</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="text-center">
+    &copy; VIRTUCIO- BIKESHOP. All rights reserved.<br>
+  </div>
+</footer>
+
+
+<script>
+  function closeModal() {
+  location.reload();
+}
+
+</script>
+ <script>
+  // Retrieve stored cart items from local storage, or initialize an empty array
+  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+  // Function to handle adding items to the cart
+  function addToCart(event, productId) {
+    event.preventDefault();
+
+    // Check if the product is already in the cart
+    const existingItem = cartItems.find(item => item.id === productId);
+
+    if (existingItem) {
+      // If the product is already in the cart, increase the quantity
+      existingItem.quantity++;
+    } else {
+      // If the product is not in the cart, add it as a new item
+      const newItem = {
+        id: productId,
+        quantity: 1
+      };
+      cartItems.push(newItem);
+    }
+
+    // Store the updated cart items in local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Show a success message
+    alert('Item added to Cart!');
+    
+    // Update the cart badge
+    updateCartBadge();
+  }
+
+  // Function to display the number of items in the cart
+  function updateCartBadge() {
+    const cartBadge = document.getElementById('cartBadge');
+    cartBadge.textContent = cartItems.length;
+  }
+
+  // Call the function to update the cart badge when the page loads
+  updateCartBadge();
+</script>
+
+<script src="cartmodal.js"></script>
+<script src="search.js"></script>
+</body>
+
+</html>

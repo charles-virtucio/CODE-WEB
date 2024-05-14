@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VIRTUCIO-Login Form</title>
+  <link rel="stylesheet" href="login.css">
+
+	<script>
+     var attempts = 3; 
+		function validateForm() {
+		  var admin = document.getElementById("admin").value;
+		  var password = document.getElementById("password").value;
+      var check = false; 
+
+		  if (admin == "virtucio" && password == "IT3C"){
+        check = true;
+      }
+			if (attempts <= 1){
+				document.getElementById("submit").disabled = true;
+        alert("You cannot submit another input because you are 3 attempts already :'< ");
+			}
+			if (check == false){
+				attempts--; 
+				alert("Invalid Username and Password!")
+        alert("You have " + attempts + " log-in left. Please enter username and password Correctly!");
+			} else {
+				alert("Login Successfuly!");
+				redirectToIndex(); 
+			}
+		}
+		
+		function redirectToIndex() {
+      window.location.href = "index.html";
+    }
+ 
+ var loginForm = document.querySelector("form");
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault(); 
+      validateForm(); 
+    });
+</script>  
+</head>  
+<body>  
+    <center>
+  <form>  
+
+    <h2>Login Form</h2><br/>  
+    <p>username: virtucio   password: IT3C</p>
+    <label>Username: </label><input type="text" id="admin" required><br><br>  
+    <label>Password: </label> <input type="password" id="password" required><br><br>  
+    <button type="button" onclick="validateForm()" id="submit">Submit</button>  
+    <button type="reset" onReset="validateForm()" id="cancel">Cancel</button>
+
+  </form>  
+</center>
+</body>  
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIRTUCIO BIKESHOP- Cart</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart-item-image {
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.cart-item-price {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.cart-item-action {
+  margin-right: 10px;
+}
+
+.cart-total {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.empty-cart-message {
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+  color: gray;
+}
+
+
+#checkoutButton.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1em;
+  height: 1em;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  
+    <div class="content">
+      <h3>Order Summary</h3> <br>
+      <div class="cart-items">
+       
+      </div>
+      <div class="cart-total">
+        Total Price: ₱<span id="cartTotal">0.00</span>
+      </div>
+      <div>
+        <button id="checkoutButton" class="btn btn-primary" onclick="checkout()" style="background-color: black;">Checkout</button>
+                 
+      </div>
+    </div>
+
+  <script>
+  
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+  
+    function renderCartItems() {
+      const cartItemsContainer = document.querySelector('.cart-items');
+      const cartTotal = document.getElementById('cartTotal');
+
+     
+      cartItemsContainer.innerHTML = '';
+
+      if (cartItems.length === 0) {
+       
+        cartTotal.textContent = '0.00';
+        const emptyCartMessage = document.createElement('div');
+        emptyCartMessage.classList.add('empty-cart-message');
+        emptyCartMessage.textContent = 'Your cart is empty';
+        cartItemsContainer.appendChild(emptyCartMessage);
+      } else {
+       
+        cartItems.forEach(item => {
+          const cartItem = document.createElement('div');
+          cartItem.classList.add('cart-item');
+          cartItem.innerHTML = `
+            <div class="cart-item-action">
+              <button class="btn btn-danger" onclick="removeFromCart('${item.id}')" style="background-color:red;">Remove</button>
+            </div>
+            <img src="${getImageUrl(item.id)}" alt="Product Image" class="cart-item-image">
+            <div class="cart-item-details">
+              <h5 class="cart-item-title" style="font-weight: bold;">${getItemTitle(item.id)}</h5>
+              <div style="width: 10px;">
+                Quantity: <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.id}', this.value)">
+              </div>
+              <p class="cart-item-price">₱${getItemPrice(item.id)}</p>
+              <p>Price based on Quantity: ₱<span id="itemTotal_${item.id}">${(getItemPrice(item.id) * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></p>
+            </div>
+          `;
+          cartItemsContainer.appendChild(cartItem);
+        });
+
+     
+       const total = calculateCartTotal();
+    cartTotal.textContent = total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+    }
+
+   
+    function updateQuantity(productId, quantity) {
+     
+      const cartItem = cartItems.find(item => item.id === productId);
+
+      if (cartItem) {
+        // Update the quantity of the cart item
+        cartItem.quantity = parseInt(quantity);
+
+        // Store the updated cart items in local storage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Render the updated cart items
+        renderCartItems();
+      }
+    }
+
+    // Function to update the cart total
+    function calculateCartTotal() {
+      let total = 0;
+
+      cartItems.forEach(item => {
+        const price = getItemPrice(item.id);
+        total += price * item.quantity;
+      });
+
+      return total;
+    }
+
+    // Function to remove an item from the cart
+    function removeFromCart(productId) {
+      // Find the index of the item to remove
+      const itemIndex = cartItems.findIndex(item => item.id === productId);
+
+      if (itemIndex !== -1) {
+        // Remove the item from the cartItems array
+        cartItems.splice(itemIndex, 1);
+
+        // Store the updated cart items in local storage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Render the updated cart items
+        renderCartItems();
+      }
+    }
+
+    // Function to get the image URL for a product
+    function getImageUrl(productId) {
+      if (productId === 'rb1') {
+        return 'images/rb-PARIS-RIVAL-B102-ORANGE.jpg';
+      } else if (productId === 'mtb2') {
+        return 'images/mtb-CERVELO-ZHT-5-GX-AXS-MOSS-KHAKI-1.jpg';
+      } else if (productId === 'gravel1') {
+        return 'images/gravel-YQB51IZD.jpg';
+      }
+      else if (productId === 'gravel2') {
+        return 'images/gravel-00EVTV170CGRX--BLKLGSTDHN.jpg';
+      } else if (productId === 'triath1') {
+        return 'images/triath-P3_red_R8000-1.jpg';
+      } else if (productId === 'accessories-pump1') {
+        return 'images/air-pump-PUMPS_MAMMOTH_2STAGE_BLK.jpg';
+      } else if (productId === 'ebike1') {
+        return 'images/e-bike-sct_silnce10_m_b_0-_1.jpg';
+      } else if (productId === 'pedal1') {
+        return 'images/pedal-TIME-XPRO-XPRESSO-FREE-CLEAT.jpg';
+      } else if (productId === 'saddle1') {
+        return 'images/saddle-PR30_Black_1.jpg';
+      } else if (productId === 'chainring1') {
+        return 'images/chainring-Powertap_C1_Chainrings_1.jpg';
+      }  else if (productId === 'shifter1') {
+        return 'images/brake-ST-R9100-SET.jpg';
+      }
+    }
+
+    // Function to get the title of a product
+    function getItemTitle(productId) {
+      
+      if (productId === 'rb1') {
+        return 'PINARELLO PARIS RIVAL AXS BIKE';
+      } else if (productId === 'mtb2') {
+        return 'CERVELO ZHT-5 GX EAGLE AXS BIKE';
+      } else if (productId === 'gravel1') {
+        return 'BIANCHI ZOLDER PRO BIKE';
+      }  else if (productId === 'gravel2') {
+        return 'PIVOT E-VAULT TEAM GRX DI2 BIKE';
+      } else if (productId === 'triath1') {
+        return 'CERVELO P3 ULTEGRA BIKE';
+      }  else if (productId === 'accessories-pump1') {
+        return 'BLACKBURN 2STAGE ANYVALVE AIR PUMP';
+      }  else if (productId === 'ebike1') {
+        return 'SCOTT SILENCE ERIDE 10 BIKE';
+      }  else if (productId === 'pedal1') {
+        return 'TIME XPRO/XPRESSO ICLIC CLEATS - FLOATING';
+      } else if (productId === 'saddle1') {
+        return 'ISM PR 3.0 SADDLE';
+      } else if (productId === 'chainring1') {
+        return 'POWERTAP C1 CHAINRINGS';
+      }  else if (productId === 'shifter1') {
+        return 'SHIMANO DURA-ACE ST-R9100 SHIFTER/BRAKE LEVER SET';
+      } 
+    }
+
+    // Function to get the price of a product
+    function getItemPrice(productId) {
+    
+      if (productId === 'rb1') {
+        return 262750.00;
+      } else if (productId === 'mtb2') {
+        return 244800.00;
+      } else if (productId === 'gravel1') {
+        return 193800.00;
+      } else if (productId === 'gravel2') {
+        return 382499.00;
+      } else if (productId === 'triath1') {
+        return 183549.00;
+      }  else if (productId === 'accessories-pump1') {
+        return 1785.00;
+      } else if (productId === 'ebike1') {
+        return 178500.00;
+      } else if (productId === 'pedal1') {
+        return 1173.00;
+      } else if (productId === 'saddle1') {
+        return 1173.00;
+      } else if (productId === 'chainring1') {
+        return 20349.00;
+      } else if (productId === 'shifter1') {
+        return 28049.99;
+      } 
+    }
+
+    // Function to handle the checkout button click
+    function checkout() {
+  if (cartItems.length === 0) {
+    alert('Your cart is empty. Please add items before checking out.');
+    return; // Exit the function if the cart is empty
+  }
+
+  // Clear the cart items array
+  cartItems = [];
+  const checkoutButton = document.getElementById('checkoutButton');
+  checkoutButton.disabled = true;
+  
+  // Add the loading class to the button
+  checkoutButton.classList.add("loading");
+
+  
+  setTimeout(function() {
+    
+    checkoutButton.classList.remove("loading");
+    
+    // Show a success message
+    alert('THANK YOU! FOR YOUR ORDER IN VIRTUCIO-BIKESHOP');
+    
+    // Store the updated cart items (empty) in local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    
+    // Render the updated cart items (empty)
+    renderCartItems();
+  }, 2000);
+}
+   
+    // Initial rendering of the cart items
+    renderCartItems();
+
+    
+  </script>
+
+</body>
+
+</html>
